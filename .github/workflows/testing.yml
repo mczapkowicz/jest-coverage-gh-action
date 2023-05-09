@@ -5,11 +5,18 @@ on:
       - master
       - main
 jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
   coverage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-          test-script: npm test
+          coverage-file: ./coverage/report.json
           annotations: none
