@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {Component} from "./Component";
+import {Component2} from "./Component2";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
           Learn preact
         </a>
       </header>
-      <Component/>
+      <Component test="a"/>
+      <Component2 test="a"/>
     </div>
   );
 }
