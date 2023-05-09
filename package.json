@@ -36,6 +36,8 @@
     ]
   },
   "devDependencies": {
-    "jest-watch-typeahead": "^0.6.5"
+    "jest-watch-typeahead": "^0.6.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "@babel/plugin-proposal-class-properties": "^7.18.6"
   }
 }
