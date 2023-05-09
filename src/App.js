@@ -20,7 +20,7 @@ function App() {
           Learn React
         </a>
         <a>
-          Learn preacta
+          Learn preactas
         </a>
       </header>
       <Component test="a"/>
