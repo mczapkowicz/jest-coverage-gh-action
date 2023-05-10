@@ -13,13 +13,6 @@ jobs:
         with:
           node-version: 14
           cache: 'npm'
-      - name: get node_modules cache
-        uses: actions/cache@v3.0.2
-        id: node_modules
-        with:
-            path: |
-              **/node_modules
-            key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}-${{ steps.node.outputs.version }}
       - name: Install dependencies!
         run: npm install
       - name: Run tests
