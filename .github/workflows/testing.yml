@@ -15,10 +15,7 @@ jobs:
           cache: 'npm'
       - name: Install dependencies!
         run: npm install
-      - name: Run tests
-        run: npm test
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           coverage-file: report.json
           test-script: npm test
-          skip-step: all
