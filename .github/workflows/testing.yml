@@ -20,4 +20,5 @@ jobs:
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           coverage-file: report.json
-          annotations: none
+          test-script: npm test
+          skip-step: all
