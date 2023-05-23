@@ -1,4 +1,4 @@
-function convertToCurrency(num, currency = 'EUR', locale = 'nl-NL') {
+export function convertToCurrency(num, currency = 'EUR', locale = 'nl-NL') {
     const formatter = new Intl.NumberFormat(locale, {
         style: 'currency',
         currency: currency
