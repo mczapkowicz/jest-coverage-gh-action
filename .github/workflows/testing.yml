@@ -33,7 +33,7 @@ jobs:
          name: ${{ github.ref_name }}-test-coverage
          path: report.json
          retention-days: 5
-      - name: Get parent code coverage artifact!
+      - name: Get parent code coverage artifact!!
         continue-on-error: true
         uses: actions/download-artifact@v3
         with:
