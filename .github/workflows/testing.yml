@@ -19,7 +19,8 @@ jobs:
         id: cached-node-modules
         with:
           path: node_modules
-      - name: Install dependencies!
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
         if: steps.cached-node-modules.outputs.cache-hit != 'true'
         run: npm ci
       - name: Run tests
@@ -27,5 +28,4 @@ jobs:
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           coverage-file: report.json
-          base-coverage-file: parent-report.json
           test-script: npm test
