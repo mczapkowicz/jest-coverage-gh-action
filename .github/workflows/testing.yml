@@ -32,7 +32,7 @@ jobs:
          path: parent-report.json
          retention-days: 5
       - name: Get parent code coverage artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: ${{ github.event.pull_request.base.ref }}-test-coverage
           path: parent-report.json
