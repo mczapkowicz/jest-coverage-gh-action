@@ -25,14 +25,17 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-      - name: Save code coverage artifact
+
+      - name: Save code coverage artifact!
+        if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v3
         with:
          name: ${{ github.ref_name }}-test-coverage
-         path: parent-report.json
+         path: report.json
          retention-days: 5
       - name: Get parent code coverage artifact
-        uses: actions/upload-artifact@v3
+        continue-on-error: true
+        uses: actions/download-artifact@v3
         with:
           name: ${{ github.event.pull_request.base.ref }}-test-coverage
           path: parent-report.json
