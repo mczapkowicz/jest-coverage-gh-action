@@ -34,6 +34,7 @@ jobs:
          path: report.json
          retention-days: 5
       - name: Get parent code coverage artifact
+        continue-on-error: true
         uses: actions/download-artifact@v3
         with:
           name: ${{ github.event.pull_request.base.ref }}-test-coverage
