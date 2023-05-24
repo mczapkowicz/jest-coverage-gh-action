@@ -8,6 +8,8 @@ export function convertToCurrency(num, currency = 'EUR', locale = 'nl-NL') {
 }
 
 
+const add = (a,b) => a+b;
+
 function parseStringAsHtml(
     content,
     selector
@@ -17,6 +19,8 @@ function parseStringAsHtml(
 
     return parsed.querySelector(selector);
 }
+
+
 
 function debounce(fn, wait, immediate) {
     let timeout;
