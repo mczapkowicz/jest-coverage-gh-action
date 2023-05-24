@@ -25,7 +25,9 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+
       - name: Save code coverage artifact!
+        if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v3
         with:
          name: ${{ github.ref_name }}-test-coverage
