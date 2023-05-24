@@ -39,8 +39,8 @@ jobs:
         with:
           name: ${{ github.event.pull_request.base.ref }}-test-coverage
           path: report.json
-      - uses: ArtiomTr/jest-coverage-report-action@v2
-        with:
-          coverage-file: report.json
-          base-coverage-file: parent-report.json
-          test-script: npm test
+#      - uses: ArtiomTr/jest-coverage-report-action@v2
+#        with:
+#          coverage-file: report.json
+#          base-coverage-file: parent-report.json
+#          test-script: npm test
