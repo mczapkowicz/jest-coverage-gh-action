@@ -38,7 +38,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ github.event.pull_request.base.ref }}-test-coverage
-          path: parent-report.json
+          path: report.json
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           coverage-file: report.json
