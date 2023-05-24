@@ -16,31 +16,16 @@ jobs:
           cache: 'npm'
       - name: Cache NPM dependencies
         uses: actions/cache@v3
-        id: cache-primes
+        id: cached-node-modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
       - name: Install dependencies!
-        if: steps.cache-primes.outputs.cache-hit != 'true'
+        if: steps.cached-node-modules.outputs.cache-hit != 'true'
         run: npm ci
       - name: Run tests
         run: npm test
-
-      - name: Save code coverage artifact!
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v3
+      - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-         name: ${{ github.ref_name }}-test-coverage
-         path: report.json
-         retention-days: 5
-      - name: Get parent code coverage artifact!
-        continue-on-error: true
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ github.event.pull_request.base.ref }}-test-coverage
-          path: report.json
-#      - uses: ArtiomTr/jest-coverage-report-action@v2
-#        with:
-#          coverage-file: report.json
-#          base-coverage-file: parent-report.json
-#          test-script: npm test
+          coverage-file: report.json
+          base-coverage-file: parent-report.json
+          test-script: npm test
