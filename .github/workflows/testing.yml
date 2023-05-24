@@ -19,7 +19,7 @@ jobs:
         id: cached-node-modules
         with:
           path: node_modules
-      - name: Install dependencies!
+      - name: Install dependencies
         if: steps.cached-node-modules.outputs.cache-hit != 'true'
         run: npm ci
       - name: Run tests
